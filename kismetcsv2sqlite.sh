@@ -2,6 +2,10 @@
 #
 # Copyright 2023 Jens Heine <binbash@gmx.net>
 #
+# Thanks to https://github.com/HackHerz for his script
+# https://gist.github.com/HackHerz/4e05681b343c7b638a33 which I used
+# as a start.
+#
 #
 DATABASE_FILENAME="database.db"
 WIRELESS_TABLE_NAME="wireless"
