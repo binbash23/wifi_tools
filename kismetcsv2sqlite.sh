@@ -77,6 +77,11 @@ echo "Importing csv files:"
 while true; do
 
   for csv_file in $FILE_LIST; do
+    if [ ! -f "$csv_file" ]; then
+	    echo "File not found: $csv_file"
+	    sleep 1
+	    continue
+    fi
     lines=`wc -l "$csv_file"|cut -f1 -d" "`
     [ $lines -gt 0 ] && lines=$((lines - 1))
     echo "`date '+%Y-%m-%d %H:%M:%S'` - Processing file: ${csv_file} ($lines lines)"
