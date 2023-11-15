@@ -1,3 +1,4 @@
+#!/bin/bash
 #
 # 20231111 jens heine binbash@gmx.net
 #
