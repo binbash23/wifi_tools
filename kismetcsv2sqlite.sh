@@ -137,6 +137,26 @@ IPType INTEGER,
 IP TEXT
 --,PRIMARY KEY("Filename", "Network")
 );
+-- Create database views
+create view if not EXISTS wireless_with_gps as SELECT
+*
+FROM
+wireless
+WHERE
+GPSBestAlt<>'0.000000'
+AND
+GPSBestLat<>'0.000000'
+AND
+GPSBestLon<>'0.000000';
+create view  if not EXISTS all_networks as
+SELECT
+DISTINCT
+ESSID,
+BSSID,
+Encryption
+FROM
+wireless
+order by 1,2;
 .mode csv
 .separator ";"
 .import '${TEMPORARY_IMPORT_FILENAME}' '${WIRELESS_TABLE_NAME}'
