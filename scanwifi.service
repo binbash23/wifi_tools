@@ -1,0 +1,21 @@
+#!/bin/bash
+#
+# 2023 jens heine <binbash@gmx.net>
+#
+# systemd configuration for scanning wlans on startup
+# Place this file in /etc/systemd/user/scanwifi.service
+# Enable the service with: systemctl enable /etc/systemd/user/scanwifi.service
+# Start/stop the service with: systemctl start/stop scanwifi
+#
+[Unit]
+Description=Scan wlan networks and collect data
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+ExecStart=/root/bin/scanwifi.sh
+ExecStop=killall scanwifi.sh
+Type=simple
+
+[Install]
+WantedBy=multi-user.target
