@@ -13,7 +13,7 @@ After=network-online.target
 Wants=network-online.target
 
 [Service]
-ExecStart=/root/bin/scanwifi.sh
+ExecStart=/usr/local/sbin/scanwifi.sh
 ExecStop=killall scanwifi.sh
 Type=simple
 

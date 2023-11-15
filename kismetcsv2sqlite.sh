@@ -138,6 +138,9 @@ IP TEXT
 --,PRIMARY KEY("Filename", "Network")
 );
 
+create INDEX if not exists 
+idx_wireless_lasttime on wireless(LastTime);
+
 -- Create database views
 create view if not EXISTS wireless_with_gps as SELECT
 *
@@ -162,6 +165,7 @@ order by 1,2;
 
 create view if not EXISTS wireless_latest as
 select
+distinct
 ESSID,
 BSSID,
 LastTime
