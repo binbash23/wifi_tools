@@ -85,7 +85,7 @@ echo "Waiting for airodump-ng to start..."
 sleep 2
 
 # Start database collector
-$KISMETCSV2SQLITE_BIN -i 1 -d "$BASE_DIR"/database.db -c "$BASE_DIR"/"$SCANFILE_PREFIX"-01.kismet.csv &
+$KISMETCSV2SQLITE_BIN -i "$DATABASE_INSERT_INTERVAL_SEC" -d "$BASE_DIR"/database.db -c "$BASE_DIR"/"$SCANFILE_PREFIX"-01.kismet.csv &
 
 # Remember PID
 KISMETCSV2SQLITE_PID=$!
